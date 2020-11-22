@@ -1,8 +1,11 @@
 import random
 
+cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+
+
 def distributeCards():
-    player = [random.randint(1,10), random.randint(1,10)]
-    computer = [random.randint(1,10), random.randint(1,10)]
+    player = [random.choice(cards), random.choice(cards)]
+    computer = [random.choice(cards), random.choice(cards)]
 
     return (player,computer)
 
@@ -38,7 +41,7 @@ while game and (playerPlays or computerPlays):
     choice = input("Do you want to pick one more card? y/n ")
 
     if choice == 'y':
-        card = random.randint(1,10)
+        card = random.choice(cards)
         print("You picked "+str(card))
         player.append(card)
         if isBust(player):
@@ -52,7 +55,7 @@ while game and (playerPlays or computerPlays):
         print("You chose not to pick any cards: ")
     
     if(sum(computer) < 15):
-            computer.append(random.randint(1,10))
+            computer.append(random.choice(cards))
             if isBust(computer):
                 print("Computer bust... You won")
                 print(f"Computers cards were: {computer}")
