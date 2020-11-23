@@ -1,16 +1,21 @@
 import art
 import random
 
+def setLives(difficulty):
+    if difficulty == 'E':
+        return 10
+    else:
+        return 5
+
+
 
 print(art.display)
 chosen_number = random.randint(1,100)
 
 difficulty = input("Enter the difficulty(E for easy and H for hard): ")
 
-if difficulty == 'E':
-    lives = 10
-else:
-    lives = 5
+
+lives = setLives(difficulty)
 
 game_won = False
 
